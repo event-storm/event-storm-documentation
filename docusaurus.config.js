@@ -9,7 +9,7 @@ const config = {
   title: 'Event storm',
   tagline: 'Store sulution with decentralized subscription',
   url: 'https://eventstorm.com',
-  baseUrl: '/',
+  baseUrl: '/event-storm-documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/event-storm.png',
