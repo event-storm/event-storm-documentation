@@ -28,11 +28,11 @@ yarn add event-storm
 
 ## What is the library focus?
 
-The main focus areas of the library are
-- performance
-- runtime optimizations
-- simple API
-- better development experience
+The main focus areas of the library are:
+- [performance](./concepts/performance.md)
+- [runtime optimizations](./concepts/optimizations.md)
+- [simple API]('./concepts/api.md)
+- [better developer experience]('./concepts/developer-experience.md)
 
 ## Basic concepts
 

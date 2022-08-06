@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`${siteConfig.title}: ${siteConfig.tagline}`}
-      description="Description will go into a meta tag in <head />">
+      description="The event storm is a javascript state manager. Boost your application performance with event storm.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
