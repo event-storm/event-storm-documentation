@@ -1,4 +1,9 @@
 ---
+id: introduction
+title: Introduction
+tags:
+    - intro
+    - introduction
 sidebar_position: 1
 ---
 
