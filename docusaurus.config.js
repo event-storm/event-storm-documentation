@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Event storm',
   tagline: 'Store sulution with decentralized subscription',
-  url: 'https://eventstorm.com',
+  url: 'https://event-storm.github.io/event-storm-documentation',
   baseUrl: '/event-storm-documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
