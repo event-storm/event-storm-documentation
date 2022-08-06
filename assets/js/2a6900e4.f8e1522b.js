@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkevent_storm_documentation=self.webpackChunkevent_storm_documentation||[]).push([[683],{3354:t=>{t.exports=JSON.parse('{"label":"motivation","permalink":"/docs/tags/motivation","allTagsPath":"/docs/tags","count":1,"items":[{"id":"motivation","title":"Motivation","description":"Motivation","permalink":"/docs/motivation"}]}')}}]);
