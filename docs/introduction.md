@@ -2,51 +2,48 @@
 id: introduction
 title: Introduction
 tags:
-    - intro
-    - introduction
+  - intro
+  - introduction
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction to Event Storm
 
-Let's discover **Docusaurus in less than 5 minutes**.
+**The Event storm is a tiny store implementation with pure javascript.**
+Event storm will help to organize and manage your application's state. The library is deigned to be framework and platform agnotics, which empowers an ability to use it, in **any Javascript runtime**.
+:::info
+There is an official **[React wrapper](https://github.com/event-storm/react-event-storm)** of the Event storm.
+:::
 
-## Getting Started
+## Installation
 
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
+To install the library run:
 ```bash
-npm init docusaurus@latest my-website classic
+# npm
+npm i event-storm
+
+# yarn
+yarn add event-storm
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+## What is the library focus?
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+The main focus areas of the library are
+- performance
+- runtime optimizations
+- simple API
+- better development experience
 
-## Start your site
+## Basic concepts
 
-Run the development server:
+The library consists of 2 parts: event store implementation and data model abstraction. The event store supports:
+- :star: dispatch/subscribe of models
+- :star: not propagates on duplicate changes(configurable)
+- :boom: middlewares support
+- :zap: store persistence
 
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+With the store you can:
+- :pill: get the last state of the store at any time
+- :punch: creating data on real information
+- :pushpin: subscription to last event(even if it happens earlier)
+- :hammer: combine the existing information to derive(compute) some information

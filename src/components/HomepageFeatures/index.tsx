@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import {useColorMode} from '@docusaurus/theme-common';
 import styles from './styles.module.css';
 
 type FeatureItem = {
@@ -37,17 +38,18 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         The event storm does not rely on any UI framework/library. You can use
-        the event storm with any UI solution.
+        the event storm with any UI solution on your target platform(browser, backend and native)
       </>
     ),
   },
 ];
 
 function Feature({title, Svg, description}: FeatureItem) {
+  const { colorMode } = useColorMode();
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <Svg className={clsx(styles.featureSvg, { [styles.invert]: colorMode === 'dark' })} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>

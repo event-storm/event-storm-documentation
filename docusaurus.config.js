@@ -14,7 +14,8 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/event-storm.png',
   organizationName: 'event-storm',
-  projectName: 'event-storm-documentation',
+  projectName: 'event-storm-documentation.github.io',
+  trailingSlash: true,
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -42,6 +43,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+      image: 'img/event-storm.png',
       navbar: {
         title: 'Event Storm',
         logo: {
@@ -106,7 +113,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Event Storm, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © 2020-${new Date().getFullYear()} Artur Gevorgyan, Event Storm organization.`,
       },
       prism: {
         theme: lightCodeTheme,
