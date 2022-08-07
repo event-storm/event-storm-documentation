@@ -3,7 +3,7 @@ id: api-reference-overview
 title: API Overview
 tags:
   - api
-  - api-reference
+  - introduction
 sidebar_position: 1
 ---
 
@@ -159,75 +159,7 @@ sidebar_position: 1
   // some stuff after the store dispatch is done on async operation
   console.log(store.getState()); // { taxes: 30, grossSalary: 100_000 }
   ```
-- Creating a model manually(source of truth)
-  **createModel**
-  ```typescript
-  import { createModel } from 'event-storm';
 
-  const userModel = createModel();
-  // When defining a model it is often usefull to have a **default value**:
-  const clientModel = createModel({});
-
-  /* NOT RECOMMENDED!
-   You can also pass the second parameter to `createModel`, which will make the model propagate on duplicate changes. Most likely if the code depends on the duplicated event it needs to be refactored,
-   instead of firing the same event twice.
-  */
-
-  const anyModel = createModel({}, { fireDuplicates: true });
-  ```
-  **Model API**
-  ```typescript
-  const popupModel = createModel(true);
-
-  const subscription = popupModel.subscribe(nextValue => {
-    console.log(nextValue); // false
-  });
-
-
-  /* As mentioned above the API is the same.
-   It's possible to make a functional and asynchronous dispatch process for a single model.
-   */
-  popupModel.dispatch(false);
-
-  console.log(popupModel.getState()); // false
-
-  subscription();
-
-  popupModel.dispatch(false); // the callback will not be fired
-  ```
-- Model API with state derivation
-  **createVirtualModel**
-  The example above will show how to create a new model based on existing models.
-  **Creating a model from existing ones will allow you to create some shared state which you want also to
-  listen**. Both functions `createModel` and `createVirtualModel` will return you the same result(a model),
-  which will be a subject to subscribe. NOTE, for both cases the API remains exactly the same.
-  ```typescript
-  import { createModel, createVirtualModel } from 'event-storm';
-  // real models
-  const time = createModel(0);
-  const velocity = createModel(10);
-
-  // virtual model
-  const road = createVirtualModel(() => {
-    return time.getState() * velocity.getState();
-  }, { models: [time, velocity] });
-
-  road.subscribe(nextValue => {
-    console.log(nextValue); // 10
-  });
-
-  time.dispatch(1);
-  ```
-  The second argument is responsible for updates. Whenever any provided model is updated, the handler function will be triggered.
-  This will also cause the subscribers update.
-  
-  Advanced!
-
-  Pay attention to the virtual model's declaration. The 2nd argument is the configuration,
-  which can be skipped initially.
-  This is done for cases when you want to propagate changes depend on some condition.
-  You can always change the models which you want to listen. Just call:
-  virtualModel.setOptions({ models: [/* any models here */] })
 - Middlewares
   **Middlewares are needed to intercept to dispatching process, to capture some values**
     ```typescript
@@ -245,53 +177,6 @@ sidebar_position: 1
       addMiddlewares(store)(handler1, handler2, ..., handlerN);
     */
     ```
-- Store Persistence
-You can easly make your store any segment to be persisted by `persisted` function.
-```typescript
-import { createStorm, persisted } from 'event-storm';
-
-const createPersistedStore = persisted(createStorm)({
-  storageKey: 'some_store_key',
-  beforeunload: state => ({
-    users: state.users,
-  }),
-});
-
-const defaultState = {
-  users: [],
-  age: 15,
-  loading: false,
-};
-
-const store = createPersistedStore(defaultState);
-```
-
-`storageKey` is **required property**. It will specify where to keep the persisted data in the storage.
-`beforeunload` method is called right before the browser unload event. It will receive the current store state as an argument.
-It can return any store fragment as a return value. The return value will be persisted.
-
-By default the `sessionStorage` is used to store the persisted data. To change the storage to `localStorage` you can set the
-`permanent` property to `true`:
-
-```typescript
-import { createStorm, persisted } from 'event-storm';
-
-const createPersistedStore = persisted(createStorm)({
-  permanent: true,
-  storageKey: 'some_store_key',
-  beforeunload: state => ({
-    users: state.users,
-  }),
-});
-
-const defaultState = {
-  users: [],
-  age: 15,
-  loading: false,
-};
-
-const store = createPersistedStore(defaultState);
-```
 
 - Log for development
 The library is outputing logs when **NODE_ENV** is set to `'development'`. To disable this log you can simply do this:

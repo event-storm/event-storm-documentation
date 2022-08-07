@@ -217,14 +217,19 @@ Here is the complete source code of [this example](https://codesandbox.io/s/redu
 :::
 
 So far you can live with the situation that it will run anyway. This basically means all the state management touch points, will be triggered on any state update. You can start optimizing the complex selectors in the application to save some comuting time(e.g. using `reselect` as an essential mechanism N2).
-Why is it like this? Having a centralized data store, has no **relation with the the data kept**, has to deal with it as a single entry. **The data store and data relation is crucial**(to see the alternatives see #whatissubcription). 
+Why is it like this? Having a centralized data store, has no **relation with the the data kept**, has to deal with it as a single entry. **The data store and data relation is crucial**(to see the alternatives [see]( #whateventstormcansuggest)). 
 
-### Updating the centralized data store
+### Data ownership
 
-Another important area of data management is the updates. Redux gives a state machine like mechanism for updating the state.
+In combination with some UI solutions(e.g. React), data store is highly recommended. In most of the cases the rendering solution has no native integration with any kind of data store. That far the data store must find a solution te be integrated with the UI solution. Rephrasing the last sentence - **The data store must have a mechanism to trigger a UI update when integrated with speficied UI solution.**
+Redux data store is has official support of integration with React UI library. The Redux is forcing to set a **[Contenxt.Provider](https://reactjs.org/docs/context.html#contextprovider)**. From that point the data access, from any UI component will be managed by React not Redux. 
+This results in some difficulties:
+- Having multiple store's at the same time. As Redux is a centralized data store, it's conter conceptual
+- Accessing the store data non from UI component. E.g. sending data store to backend each specified time interval.
+- Code splitting. At a larger scale(or just with microservice architecture) it's mostly impossible to decouple the application into independent peaces, without a relation on data store. Main issue with this is again centralization and data access. Imagine a situation when you want to lazy load a theme data store to your application.
 
-## What is a subcription?
+The main issue here is the transfer of data ownership. Redux transfers the ownership to React. And the difficulties with React as a data store is trivial: it's a UI solution, and was never designed to be a data store.
 
-Generally saying **subscription** is receiving some information(maybe something) over some agreement. According to the definition the act of subscription is based on particular subscription subject. Which basically means, that the owner of the subscription must receive an information, if and only if, the particular subject has been changed. Furthermore, the owner of the subject must not be even "disturbed", for any other reason.
+## What Event storm can suggest?
 
-Coming to the computer sceince. In CS the above can be described as a regular situation between observer and consumer on observable subject. Either it can be the event, subcriber and subscription. 
+Event storm is designed to address and solve the above mentioned problems. It provides design minimals to build any size of data store. The Event Storm library is suggesting a decentralized store with a single usage interface as before.

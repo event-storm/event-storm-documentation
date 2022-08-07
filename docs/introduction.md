@@ -51,6 +51,14 @@ store.dispatch({ name: 'Event storm - manage your state effectively' });
 store.dispatch(prev => ({ isActive: !prev.isActive }));
 ```
 
+### When to use Event storm? 
+
+- Large scale application with a lot of data consumers(1K+)
+- The application is doing a lot of CPU intensive computations
+- The bundle size limited applications(library size 2kb)
+- Microservice applications(no matter using the same technology for microservices or not)
+
+
 ## How the documentation is structured?
 
 - [The motiviation](./motivation.md) - For better understanding the **what**'s and **why**'s you can start with the motivation.
