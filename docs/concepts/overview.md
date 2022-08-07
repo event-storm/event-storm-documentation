@@ -26,3 +26,12 @@ The library is suggesting a decentralized store with a single user interface as 
   Another crucial part of an event store database is that events that are stored are not allowed to be changed.
   The only way to change (or better: correct) these events is to instantiate a new event with the new values(**So as we know no mutation allowed**).
 </details>
+
+
+## What is the library focus?
+
+The main focus areas of the library are:
+- [simple API]('./concepts/api.md)
+- [performance](./concepts/performance.md)
+- [runtime optimizations](./concepts/optimizations.md)
+- [better developer experience]('./concepts/developer-experience.md)

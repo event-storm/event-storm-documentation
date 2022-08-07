@@ -1,0 +1,230 @@
+---
+id: motivation
+title: Motivation
+tags:
+  - motivation
+sidebar_position: 2
+---
+
+In the modern world data storage is an inseparable component of most applications. There are various problems crossing the same issue of having efficient data storage(caching, application state management, databases, etc.).
+
+At a larger scale it becomes more and more important to spend the minimum cost for keeping and managing such a storage.
+On the other hand, the centralized data management will cause performance issues and delays for data updates. Imagine an application with more than 10K consumers for the same data, or updating 1K different subject at the same time. 
+The comminity has tackled the data management problem with a lot of different technologies, such as Redux, Mobx, etc. 
+Unfortunately, none of them has designed to be cost effective at a larger scale...
+
+The Event storm has been created to solve the above mentioned problem. 
+
+## Diving deeper
+The state manager must provide a straight forward way to access, subscribe and modify to the data. Let's consider a centralized data manager such as Redux(thought the same is true for other data managers too, Redux will be used as commonly recognized goto solution). Centralizing the data in one place have a good advantage of having a single place of data modification. The main downsides of this approach is keeping the information as a single entry. If the data is single entry means it automtically becomes the subject in which the subscription can run. Rephrasing the last, **each susbcription to a centralized data store is a subscription to whole store**.
+
+## The problem
+
+### Subscription
+Here comes the pain. When the data inside your centralized data store system is not about just the same business entity(of course it doesn't), you'll need some essential mechanisms to exclude unnecassary subscription calls.
+Let's build a simple example to demonstrate the problem.
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="store.js">
+```
+
+```typescript
+import { createStore } from "redux";
+
+const actions = {
+  increment: "counter/incremented",
+  decrement: "counter/decremented"
+};
+
+const defaultState = { value: 0 };
+
+function counterReducer(state = defaultState, action) {
+  switch (action.type) {
+    case actions.increment:
+      return { ...state, value: state.value + 1 };
+    case action.decrement:
+      return { ...state, value: state.value - 1 };
+    default:
+      return state;
+  }
+}
+
+export { actions };
+export default createStore(counterReducer);
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="components/Button.jsx">
+```
+
+```typescript
+import { useSelector, useDispatch } from "react-redux";
+
+import { actions } from "../store";
+
+function Button() {
+  const value = useSelector((state) => state.value);
+  const dispatch = useDispatch();
+  console.log("render", value);
+  return (
+    <button
+      onClick={() => {
+        dispatch({ type: actions.increment });
+      }}
+    >
+      click me{value}
+    </button>
+  );
+}
+
+export default Button;
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="App.jsx">
+```
+
+```typescript
+import { Provider } from "react-redux";
+
+import Button from "./components/Button";
+import store from "./store";
+
+export default function App() {
+  return (
+    <Provider store={store}>
+      <Button />
+    </Provider>
+  );
+}
+```
+
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+The example is working correct - each click updates the `state.value`, and the button rerenders with the new `state.value`.
+
+Now let's add a different component, that will not use the `state.value`, but a different portion of the `state`.
+age: 17, name: "John"
+```mdx-code-block
+
+<Tabs>
+<TabItem value="components/NotSubscribeb.jsx">
+```
+
+```typescript
+import { useSelector } from "react-redux";
+
+function NotSubscribed() {
+  const { age, name } = useSelector(state => {
+    return { age: state.age, name: state.name };
+  });
+  console.log("render", age);
+  return (
+    <span>
+      {age} - {name}
+    </span>
+  );
+}
+
+export default NotSubscribed;
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="store.js">
+```
+
+````typescript
+  decrement: "counter/decremented"
+};
+
+const defaultTSate = { value: 0, age: 17, name: 'John' };
+
+function counterReducer(state = defaultState, action) {
+  switch (action.type) {
+````
+
+```mdx-code-block
+</TabItem>
+<TabItem value="App.jsx">
+```
+```typescript
+import { Provider } from "react-redux";
+
+import Button from "./components/Button";
+import NotSubscribed from "./components/NotSubscribed";
+import store from "./store";
+
+export default function App() {
+  return (
+    <Provider store={store}>
+      <Button />
+      <NotSubscribed />
+    </Provider>
+  );
+}
+```
+
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+
+In the above example on each button click, when the `state.value` is changed, the `NotSubscribed` component will also rerender. **The rerender is an unnecassary**.
+Here it comes to the essential mechanisms :pill:.
+
+- You can consider using `React.memo`, but unfortunetly it will not work.
+```typescript title="components/NotSubscribed.jsx"
+export default React.memo(NotSubscribed); // ❌
+```
+- Redux `useSelector` supports second argument, an equality function. Let's pass `lodash.isEqual`.
+```typescript title="components/NotSubscribed.jsx"
+import isEqual from 'lodash/isEqual';
+
+const { age, name } = useSelector(state => {
+  return { age: state.age, name: state.name };
+}, isEqual); // ✅ 
+```
+Comparing the equality saves the rerender(essential mechanism N1). But what actually happened? Equality function needs previous and next states to compare. So far, we are yet computing the selector, but we don't rerender the component.
+Evidance:
+```typescript title="components/NotSubscribed.jsx"
+import isEqual from 'lodash/isEqual';
+
+const { age, name } = useSelector(state => {
+  console.log('computing the selector');
+  return { age: state.age, name: state.name };
+}, isEqual);
+```
+What else we can do here?
+- You can try using `useCallback` for the selector function. Again you'll have no luck.
+```typescript
+import { useCallback } from 'react';
+
+const { age, name } = useSelector(useCallback(state => {
+  console.log('computing the selector');
+  return { age: state.age, name: state.name };
+}, []), isEqual); // ❌
+```
+:::info
+Here is the complete source code of [this example](https://codesandbox.io/s/redux-update-81zjv?file=/src/App.js).
+:::
+
+So far you can live with the situation that it will run anyway. This basically means all the state management touch points, will be triggered on any state update. You can start optimizing the complex selectors in the application to save some comuting time(e.g. using `reselect` as an essential mechanism N2).
+Why is it like this? Having a centralized data store, has no **relation with the the data kept**, has to deal with it as a single entry. **The data store and data relation is crucial**(to see the alternatives see #whatissubcription). 
+
+### Updating the centralized data store
+
+Another important area of data management is the updates. Redux gives a state machine like mechanism for updating the state.
+
+## What is a subcription?
+
+Generally saying **subscription** is receiving some information(maybe something) over some agreement. According to the definition the act of subscription is based on particular subscription subject. Which basically means, that the owner of the subscription must receive an information, if and only if, the particular subject has been changed. Furthermore, the owner of the subject must not be even "disturbed", for any other reason.
+
+Coming to the computer sceince. In CS the above can be described as a regular situation between observer and consumer on observable subject. Either it can be the event, subcriber and subscription. 

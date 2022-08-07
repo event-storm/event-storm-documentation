@@ -26,24 +26,34 @@ npm i event-storm
 yarn add event-storm
 ```
 
-## What is the library focus?
+### Simple example
 
-The main focus areas of the library are:
-- [performance](./concepts/performance.md)
-- [runtime optimizations](./concepts/optimizations.md)
-- [simple API]('./concepts/api.md)
-- [better developer experience]('./concepts/developer-experience.md)
+```typescript
+import { createStorm } from 'event-storm';
 
-## Basic concepts
+const defaultState = {
+  name: 'Event Storm',
+  isActive: false,
+}
 
-The library consists of 2 parts: event store implementation and data model abstraction. The event store supports:
-- :star: dispatch/subscribe of models
-- :star: not propagates on duplicate changes(configurable)
-- :boom: middlewares support
-- :zap: store persistence
+const storm = createStorm(defaultState);
 
-With the store you can:
-- :pill: get the last state of the store at any time
-- :punch: creating data on real information
-- :pushpin: subscription to last event(even if it happens earlier)
-- :hammer: combine the existing information to derive(compute) some information
+// subscribing to listen all the changes
+store.subscribe((state, access) => console.log(access(store)));
+
+// subscribing to listen only partial changes
+store.subscribe((state, access) => console.log(access(store.name)));
+
+// update the state
+store.dispatch({ name: 'Event storm - manage your state effectively' });
+
+// use previous state to make the updates
+store.dispatch(prev => ({ isActive: !prev.isActive }));
+```
+
+## How the documentation is structured?
+
+- [The motiviation](./motivation.md) - For better understanding the **what**'s and **why**'s you can start with the motivation.
+- [Core concepts]('./concepts/overview.md) - To better understand the ideology of the Event Storm, the data abstraction and how the library is organized read the core concepts.
+- [How to structure code](./recomendations.md) - To have more organized and minimalistic structure, we recommend some hints and tips
+- [API reference](./api-reference/overview.md)

@@ -48,12 +48,12 @@ const config = {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
-      image: 'img/event-storm.png',
+      image: '/img/event-storm.png',
       navbar: {
         title: 'Event Storm',
         logo: {
           alt: 'Event Storm Logo',
-          src: 'img/event-storm.png',
+          src: '/img/event-storm.png',
         },
         items: [
           {
