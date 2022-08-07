@@ -58,10 +58,17 @@ store.dispatch(prev => ({ isActive: !prev.isActive }));
 - The bundle size limited applications(library size 2kb)
 - Microservice applications(no matter using the same technology for microservices or not)
 
+### See it in action
+
+Examples:
+ - [**Typescript**](https://codesandbox.io/s/beautiful-currying-bl9dv)
+ - [**React**](https://codesandbox.io/s/intelligent-http-iupz5)
+
 
 ## How the documentation is structured?
 
 - [The motiviation](./motivation.md) - For better understanding the **what**'s and **why**'s you can start with the motivation.
 - [Core concepts]('./concepts/overview.md) - To better understand the ideology of the Event Storm, the data abstraction and how the library is organized read the core concepts.
 - [How to structure code](./recomendations.md) - To have more organized and minimalistic structure, we recommend some hints and tips
+- [Official bindings](./bindings/overview.md) - Find the official packages for to integrate the Event storm with your UI solution
 - [API reference](./api-reference/overview.md)

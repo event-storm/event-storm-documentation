@@ -1,16 +1,16 @@
 ---
-id: concepts-api
+id: api
 title: How the API is designed?
 tags:
   - concepts
   - api
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 ## Basic concepts
 
 The library consists of 2 parts: event store implementation and data model abstraction. The event store supports:
-- :star: dispatch/subscribe of models
+- :star: `dispatch/subscribe` of models
 - :star: not propagates on duplicate changes(configurable)
 - :boom: middlewares support
 - :zap: store persistence

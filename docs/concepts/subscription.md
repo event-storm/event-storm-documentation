@@ -1,5 +1,5 @@
 ---
-id: concepts-subscription
+id: subscription
 title: What is a subscription?
 tags:
   - concepts

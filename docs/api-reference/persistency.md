@@ -1,5 +1,5 @@
 ---
-id: api-reference-persistency
+id: persistency
 title: Make the store persistant
 tags:
   - api

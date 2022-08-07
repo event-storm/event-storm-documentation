@@ -1,5 +1,5 @@
 ---
-id: api-reference-storm
+id: storm
 title: Storm
 tags:
   - api
@@ -67,7 +67,7 @@ type IStormState<Type> = {
 ```
 
 
-### AnyObject
+#### AnyObject
 ```typescript
 type AnyObject = Record<string, any>;
 ```

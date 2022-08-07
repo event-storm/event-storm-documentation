@@ -1,5 +1,5 @@
 ---
-id: concepts-dx
+id: dx
 title: Developer experience
 tags:
   - concepts

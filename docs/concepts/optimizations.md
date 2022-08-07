@@ -1,5 +1,5 @@
 ---
-id: concepts-optimizations
+id: optimizations
 title: Optimizating the run time
 tags:
   - concepts

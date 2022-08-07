@@ -1,5 +1,5 @@
 ---
-id: api-reference-virtualmodel
+id: virtualmodel
 title: Model with state derivation
 tags:
   - api

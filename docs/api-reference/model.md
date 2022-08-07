@@ -1,5 +1,5 @@
 ---
-id: api-reference-model
+id: model
 title: Model
 tags:
   - api
