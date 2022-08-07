@@ -11,7 +11,7 @@ sidebar_position: 1
 The API reference is bringing the examples in typescript
 :::
 
-The event storm library is providing the following top level exports:
+The Event Storm library is providing the following top level exports:
 - [createStorm](./storm.md)
 - [createModel](./model.md)
 - [persisted](./persistency.md)

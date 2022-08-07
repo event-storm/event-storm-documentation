@@ -12,7 +12,19 @@ Creating a single information unit. Use this method to have syncronized updates 
 :::info
 Even when proding object structure, model will allways update all the subscribers. For individual subscription use [storm](./store.md).
 :::
-### createModel
+## createModel
+
+### Model value types
+
+Model can accept any JS type.
+### Creating models with object values
+Using an object value will result in updates on each key change. In other words the object's individual keys can’t be consumed by that model.
+
+### Model internal structure
+Model itself internally keeps track of its lifecycle.
+Model has its own list of subscribers. Whenever you are using the subscribe method it will be checked whether it is already registered or not and if not, it will register(exactly push) the provided function to the models internal subscribers list. The subscribe function will return a function. You can call that function to unsubscribe from the model.
+Model keeps the options list provided at the creation time. In order to update model's options you can use the [setOptions method](#imodel).
+
 ```typescript
 import { createModel } from 'event-storm';
 

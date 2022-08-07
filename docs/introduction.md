@@ -9,10 +9,10 @@ sidebar_position: 1
 
 # Introduction to Event Storm
 
-**The Event storm is a tiny store implementation with pure javascript.**
-Event storm will help to organize and manage your application's state. The library is deigned to be framework and platform agnotics, which empowers an ability to use it, in **any Javascript runtime**.
+**The Event Storm is a tiny store implementation with pure javascript.**
+Event Storm will help to organize and manage your application's state. The library is deigned to be framework and platform agnotics, which empowers an ability to use it, in **any Javascript runtime**.
 :::info
-There is an official **[React wrapper](https://github.com/event-storm/react-event-storm)** of the Event storm.
+There is an official **[React wrapper](https://github.com/event-storm/react-event-storm)** of the Event Storm.
 :::
 
 ## Installation
@@ -45,13 +45,13 @@ store.subscribe((state, access) => console.log(access(store)));
 store.subscribe((state, access) => console.log(access(store.name)));
 
 // update the state
-store.dispatch({ name: 'Event storm - manage your state effectively' });
+store.dispatch({ name: 'Event Storm - manage your state effectively' });
 
 // use previous state to make the updates
 store.dispatch(prev => ({ isActive: !prev.isActive }));
 ```
 
-### When to use Event storm? 
+### When to use Event Storm? 
 
 - Large scale application with a lot of data consumers(1K+)
 - The application is doing a lot of CPU intensive computations
@@ -70,5 +70,5 @@ Examples:
 - [The motiviation](./motivation.md) - For better understanding the **what**'s and **why**'s you can start with the motivation.
 - [Core concepts]('./concepts/overview.md) - To better understand the ideology of the Event Storm, the data abstraction and how the library is organized read the core concepts.
 - [How to structure code](./recomendations.md) - To have more organized and minimalistic structure, we recommend some hints and tips
-- [Official bindings](./bindings/overview.md) - Find the official packages for to integrate the Event storm with your UI solution
+- [Official bindings](./bindings/overview.md) - Find the official packages for to integrate the Event Storm with your UI solution
 - [API reference](./api-reference/overview.md)

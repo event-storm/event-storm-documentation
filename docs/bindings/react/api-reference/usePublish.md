@@ -3,7 +3,7 @@ id: bindings-api-usepublish
 title: usePublish
 tags:
   - react
-  - event storm
+  - Event Storm
   - usepublish
   - bindings
 sidebar_position: 2

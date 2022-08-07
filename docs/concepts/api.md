@@ -7,6 +7,7 @@ tags:
 sidebar_position: 6
 ---
 
+The Event Storm library 
 ## Basic concepts
 
 The library consists of 2 parts: event store implementation and data model abstraction. The event store supports:

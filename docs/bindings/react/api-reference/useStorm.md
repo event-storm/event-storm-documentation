@@ -3,7 +3,7 @@ id: bindings-api-usestorm
 title: useStorm
 tags:
   - react
-  - event storm
+  - Event Storm
   - useStorm
   - bindings
 sidebar_position: 1

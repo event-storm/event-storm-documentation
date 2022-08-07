@@ -15,7 +15,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/easy-to-integrate.svg').default,
     description: (
       <>
-        Event storm is designed from the ground up to be an easy replacement
+        Event Storm is designed from the ground up to be an easy replacement
         for your state management choice. Already fimiliar API with an optimized,
         decentialized subscription mechanism
       </>
@@ -26,8 +26,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/performance-centric.svg').default,
     description: (
       <>
-        Each feature of event storm is desgined with the performance and scale in mind.
-        Event storm will allow you to minimize the application rendering to the rare minimum.
+        Each feature of Event Storm is desgined with the performance and scale in mind.
+        Event Storm will allow you to minimize the application rendering to the rare minimum.
         Bundle size, integration cost, subscription mechanism, recomputions, etc.
       </>
     ),
@@ -37,8 +37,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/ui-agnostic.svg').default,
     description: (
       <>
-        The event storm does not rely on any UI framework/library. You can use
-        the event storm with any UI solution on your target platform(browser, backend and native)
+        The Event Storm does not rely on any UI framework/library. You can use
+        the Event Storm with any UI solution on your target platform(browser, backend and native)
       </>
     ),
   },

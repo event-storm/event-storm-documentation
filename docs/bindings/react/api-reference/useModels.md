@@ -3,13 +3,13 @@ id: bindings-api-usemodels
 title: useModels
 tags:
   - react
-  - event storm
+  - Event Storm
   - useModels
   - bindings
 sidebar_position: 3
 ---
 
-The event storm models also can be used with React components. `useModels` can receive a [models](/docs/api-reference/model#imodel) array, subscribe to them and return their last states( in the same provided order).
+The Event Storm models also can be used with React components. `useModels` can receive a [models](/docs/api-reference/model#imodel) array, subscribe to them and return their last states( in the same provided order).
 ```typescript
 import { createModel } from 'event-storm';
 import { useModels } from 'react-event-storm';

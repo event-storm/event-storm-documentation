@@ -13,7 +13,7 @@ On the other hand, the centralized data management will cause performance issues
 The comminity has tackled the data management problem with a lot of different technologies, such as Redux, Mobx, etc. 
 Unfortunately, none of them has designed to be cost effective at a larger scale...
 
-The Event storm has been created to solve the above mentioned problem. 
+The Event Storm has been created to solve the above mentioned problem. 
 
 ## Diving deeper
 The state manager must provide a straight forward way to access, subscribe and modify to the data. Let's consider a centralized data manager such as Redux(thought the same is true for other data managers too, Redux will be used as commonly recognized goto solution). Centralizing the data in one place have a good advantage of having a single place of data modification. The main downsides of this approach is keeping the information as a single entry. If the data is single entry means it automtically becomes the subject in which the subscription can run. Rephrasing the last, **each susbcription to a centralized data store is a subscription to whole store**.
@@ -230,6 +230,6 @@ This results in some difficulties:
 
 The main issue here is the transfer of data ownership. Redux transfers the ownership to React. And the difficulties with React as a data store is trivial: it's a UI solution, and was never designed to be a data store.
 
-## What Event storm can suggest?
+## What Event Storm can suggest?
 
-Event storm is designed to address and solve the above mentioned problems. It provides design minimals to build any size of data store. The Event Storm library is suggesting a decentralized store with a single usage interface as before.
+Event Storm is designed to address and solve the above mentioned problems. It provides design minimals to build any size of data store. The Event Storm library is suggesting a decentralized store with a single usage interface as before.
