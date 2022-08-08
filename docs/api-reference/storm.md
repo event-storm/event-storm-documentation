@@ -35,7 +35,7 @@ console.log(store.getState()) // { taxes: 20, grossSalary: 100_000 }
 ```typescript
 interface IStorm<T> {
   getState: () => IStormState<T>;
-  subscribe: (callback: IStormSubcription<T>) => () => void;
+  subscribe: (callback: IStormSubscription<T>) => () => void;
   addMiddleware: (middleware: IStormMiddleware) => () => void;
   dispatch: (segments: Partial<T> | ((params: IStormState<T>) => Partial<T>), options?: AnyObject) => void;
 }
@@ -43,14 +43,14 @@ interface IStorm<T> {
 | Method | Type | Description |
 |   -    |   -   |      -     |
 | getState | () => [IStormState](#istormstate)&lt;T> | The method will return the actual state of the storm |
-| subscribe | (callback: [IStormSubcription](#istormsubscription)&lt;T>) => () => void | The method will receive a subscription function. The return value of this method can be called to unsubcribe |
+| subscribe | (callback: [IStormSubscription](#istormsubscription)&lt;T>) => () => void | The method will receive a subscription function. The return value of this method can be called to unsubcribe |
 | dispatch | (segments: Partial&lt;T> | ((params: [IStormState](#istormstate)&lt;T>) => Partial&lt;T>), options?: [AnyObject](#anyobject)) => void | The method must be used to update the storm state. The `dispatch` can provide partial state. The `dispatch` first argument can be invoked as a function. In case when the first argument is a function it will receive the last state of the storm as an argument. The `dispatch` also received a second argument. Use that argument for your own purposes(e.g. creating a middleware) |
 | addMiddleware | (middleware: [IStormMiddleware](#istormmiddleware)) => () => void | Provide a middleware to the storm. The middleware will be called before any update to the storm. |
 
 
-### IStormSubcription
+### IStormSubscription
 ```typescript
-type IStormSubcription<T, G = any> = (state: IStormState<T>, subscribe: (state: G) => G) => void
+type IStormSubscription<T, G = any> = (state: IStormState<T>, subscribe: (state: G) => G) => void
 ```
 
 To subcribe to a particular section use the second argument of the sucbcription function. E.g. `subcribe(state.desired)`. Pass any part of the [IStormState](#istormstate) to the second argument and you'll subscribe only for those changes. 

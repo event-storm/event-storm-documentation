@@ -34,7 +34,7 @@ function useModels<T extends IModelConfiguration>(models: IModel<any, T>[], opti
 
 ## Arguments
 - models - The [models](/docs/api-reference/model#imodel) array to subcribe.
-- options - The subscription [configuration object](./isubscriptionoptions). The same as for [useStorm](./useStorm.md#isubscriptionoptions)
+- options - The subscription [configuration object](#isubscriptionoptions). The same as for [useStorm](./useStorm.md#isubscriptionoptions)
 
 ## Returns
 - The hook returns the values of the provided models with an array. The array order corresponds to the provider models array order.
