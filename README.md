@@ -1,3 +1,5 @@
+[![Deploy to GitHub Pages](https://github.com/event-storm/event-storm-documentation/actions/workflows/delpoy.yml/badge.svg)](https://github.com/event-storm/event-storm-documentation/actions/workflows/delpoy.yml)
+
 # Website
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
