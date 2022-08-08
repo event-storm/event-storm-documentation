@@ -10,7 +10,7 @@ sidebar_position: 3
 
 Creating a single information unit. Use this method to have syncronized updates for all the subscribers.
 :::info
-Even when proding object structure, model will allways update all the subscribers. For individual subscription use [storm](./store.md).
+Even when proding object structure, model will allways update all the subscribers. For individual subscription use [storm](./storm.md).
 :::
 ## createModel
 

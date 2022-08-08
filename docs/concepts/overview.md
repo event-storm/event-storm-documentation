@@ -27,7 +27,7 @@ In the near future it is planned to develop a Browser Extension / Inspector that
 ## What is the library focus?
 
 The main focus areas of the library are:
-- [simple API]('./concepts/api.md)
-- [performance](./concepts/performance.md)
-- [runtime optimizations](./concepts/optimizations.md)
-- [better developer experience]('./concepts/developer-experience.md)
+- [simple API]('./api.md)
+- [performance](./performance.md)
+- [runtime optimizations](./optimizations.md)
+- [better developer experience]('./developer-experience.md)
