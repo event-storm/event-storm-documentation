@@ -30,4 +30,4 @@ The main focus areas of the library are:
 - [simple API](./api.md)
 - [performance](./performance.md)
 - [runtime optimizations](./optimizations.md)
-- [better developer experience]('./developer-experience.md)
+- [better developer experience](./developer-experience.md)

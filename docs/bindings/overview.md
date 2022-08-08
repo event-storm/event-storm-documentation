@@ -1,5 +1,5 @@
 ---
-id: bindings-overview
+id: overview
 title: Supported bindings
 tags:
   - bindings

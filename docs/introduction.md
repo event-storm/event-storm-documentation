@@ -68,7 +68,7 @@ Examples:
 ## How the documentation is structured?
 
 - [The motiviation](/docs/motivation) - For better understanding the **what**'s and **why**'s you can start with the motivation.
-- [Core concepts]('/docs/concepts/overview) - To better understand the ideology of the Event Storm, the data abstraction and how the library is organized read the core concepts.
+- [Core concepts](/docs/concepts/overview) - To better understand the ideology of the Event Storm, the data abstraction and how the library is organized read the core concepts.
 - [How to structure code](/docs/recommendations) - To have more organized and minimalistic structure, we recommend some hints and tips
 - [Official bindings](/docs/bindings/overview) - Find the official packages for to integrate the Event Storm with your UI solution
 - [API reference](/docs/api-reference/overview)

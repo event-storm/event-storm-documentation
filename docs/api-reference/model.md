@@ -37,7 +37,7 @@ const clientModel = createModel({});
 ### Methods
 | Method | Type | Description |
 |   -    |   -   |      -     |
-| createModel | &lt;T>(value?: T, option?: [IModelOptions](#imodeloptions)) => [IModel](imodel)&lt;T> | Calling this method will return a [model](#imodel). The first argument is the default state of the model. The second argument is the model default [option](imodeloptions). |
+| createModel | &lt;T>(value?: T, option?: [IModelOptions](#imodeloptions)) => [IModel](#imodel)&lt;T> | Calling this method will return a [model](#imodel). The first argument is the default state of the model. The second argument is the model default [option](#imodeloptions). |
 
 ## IModel
 ```typescript
