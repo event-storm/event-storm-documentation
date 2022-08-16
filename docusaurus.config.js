@@ -59,12 +59,42 @@ const config = {
           {
             type: 'doc',
             docId: 'introduction',
-            position: 'left',
+            position: 'right',
             label: 'Documenation',
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            type: 'doc',
+            docId: 'faq',
+            position: 'right',
+            label: 'FAQ',
+          },
+
+          {
+            type: 'doc',
+            docId: 'terminology',
+            position: 'right',
+            label: 'Terminology',
+          },
+          {
+            type: 'doc',
+            docId: 'concepts/overview',
+            position: 'right',
+            label: 'Main concepts',
+          },
+          {
+            type: 'doc',
+            docId: 'bindings/overview',
+            position: 'right',
+            label: 'Official bindings',
+          },
+          {
+            type: 'doc',
+            docId: 'api-reference/overview',
+            position: 'right',
+            label: 'API Reference',
+          },
+          {
+            href: 'https://github.com/event-storm/event-storm',
             label: 'GitHub',
             position: 'right',
           },
@@ -77,8 +107,28 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Introduction',
                 to: '/docs/introduction',
+              },
+              {
+                label: 'Terminology',
+                to: '/docs/terminology',
+              },
+              {
+                label: 'Motivation',
+                to: '/docs/motivation',
+              },
+              {
+                label: 'Main concepts',
+                to: '/docs/concepts',
+              },
+              {
+                label: 'Offical bindings',
+                to: '/docs/bindings',
+              },
+              {
+                label: 'API Reference',
+                to: '/docs/api-reference',
               },
             ],
           },
@@ -89,23 +139,23 @@ const config = {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/event-storm',
               },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/event-storm',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/event-storm',
-              },
+              // {
+              //   label: 'Discord',
+              //   href: 'https://discordapp.com/invite/event-storm',
+              // },
+              // {
+              //   label: 'Twitter',
+              //   href: 'https://twitter.com/event-storm',
+              // },
             ],
           },
           {
             title: 'More',
             items: [
-              // {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
+              {
+                label: 'Report an issue',
+                href: 'https://github.com/event-storm/event-storm/issues',
+              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/event-storm/event-storm',
