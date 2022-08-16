@@ -7,7 +7,8 @@ tags:
 sidebar_position: 2
 ---
 
-### Performance (TODO:: state management ownership, Context.Provider)
+The library is concentrated in providing highly optimized subscription mechanism. 
+
 The above-mentioned libraries(and not only them) are using a **centralized concept of keeping the information**.
 What does this mean?
 When creating a store it is described as an object and also it corresponds to a single tree in the memory.
