@@ -1,0 +1,98 @@
+---
+id: faq
+title: FAQ
+tags:
+  - guides
+  - introduction
+  - faq
+sidebar_position: 4
+---
+
+## When should I use Event Storm?
+The event storm is a general purpose state management solution. You can use the library in large project, as well as in small ones. The library is providing a choice for smaller state's. If you're new to state management at all you can start with creating a [model](/docs/api-reference/model). Meanwhile, if you're already an advanced user of state management you can start using the [storm](docs/api-reference/storm) directly.
+More specifically if you're already using a state management and suffering with performance problems, definetely you need to give a try of the Event storm. The library was initially created [for that reason](/docs/motivation).
+
+## Can Event storm only be used with React?
+No. You are free to use the library in any environment with any framework(library) you wish. The Event storm is design in to be used in any Javascript hoisted environment(browser, nodejs, native, etc.).
+:::info
+The event storm has an official [ReactJs binding](/docs/bindings/react)
+:::
+
+## How to organize the directory structure?
+We are suggesting not to make a separated directory for managing all the storm related stuff. Having simple storm directory with project bindings can be enough in most of the cases.
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="storm/index.tsx">
+```
+
+```typescript
+export { default as storm } from './storm';
+// if you're using React
+export * from './useStorm';
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="storm/storm.ts">
+```
+
+````typescript
+import { createStorm } from 'event-storm';
+
+import defaultState from './defaultState';
+
+const storm = createStorm(defaultState);
+
+export default storm;
+
+````
+
+```mdx-code-block
+</TabItem>
+<TabItem value="storm/defaultState.ts">
+```
+```typescript
+export default {
+  name: 'Bob',
+}
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="storm/useStorm.ts">
+```
+
+```typescript
+// if you're using react
+import { useStorm as useBaseStorm, usePublish as useBasePublish } from 'react-event-storm';
+
+import storm from './storm';
+
+export const useStorm = selectFragment => useBaseStorm(storm, selectFragment);
+
+export const usePublish = options => useBasePublish(storm, options);
+```
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+
+## Why the library has no action or reducer?
+The event storm is following the KISS principle. The simpler the code, more easy to maintain it. The main reason for having unified actions or reducers, is to ensure that all the updates for the information are done from single sources. Thus it's easier to debug and to find the issues. Unfortunately, as far as the project is being scaled, there is moreoften need to update the same state from multiple action/reducers, and the abstraction is bringing more overhead, rather than solving real problem.
+The event storm library suggests to keep the information updates from a single functions and call them directly. There is no need to keep the centralized condition determinator to make the updates just with that functions. Furthermore, the keeping the updates as simple as function will decrease the boilerplate when trying to add some updater dynamically.
+
+## Should I keep everything inside one storm?
+The library is not limited to just one storm instance. It is possible to create as many library instances as you need. You can relay on your use-case and separate the application information in a modular manner. You can also use [models](/docs/api-reference/model) when dealing with a single shared information units.
+
+## How to organize the migration to Event storm?
+The event storm is designed to be an easy replacement for existing state management solutions. For that reason the naming is mostly kept the same. When migrating from action/reducer architecture(e.g. Redux) you can:
+- specify your reducers as a separate functions
+- get rid of actions and actions types
+- replace dispatching actions to calling the direct update functions
+
+If you're using React:
+- The library has no React.Provider, so you can simple get rid of it
+- [useStorm](/docs/bindings/react/api-reference/useStorm) is similiar to other state management hooks. You can skip using the [second argument](/docs/bindings/react/api-reference/useStorm#tselectfragment) for the first migration phase. By default the subscription function will be assigned to subscribe to whole store. You can address the performance optimizations later.
