@@ -1,6 +1,6 @@
 ---
-id: bindings-overview
-title: React Event Storm
+id: overview
+title: Overview
 tags:
   - react
   - Event Storm

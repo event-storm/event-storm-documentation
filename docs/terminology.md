@@ -33,7 +33,7 @@ When working with virtual model it's better to thing of a process than an inform
 The change of the information over the time is called update. Defining a model per se means that the model itself will evolve during some managable time frame(If the last is not the case, you can define the information as constant instead). Moreever, in the library context saying "update", also has consequence of updating all the [subscribers](#subscription).
 
 ### Dispatch
-As the model must be updated the library is providing a method called **dispatch** for that needs. "Dispatching an update" in this context means chaning the actual state of the model. Any model change will cause the [subscribers](@subscription) to be notified
+As the model must be updated the library is providing a method called **dispatch** for that needs. "Dispatching an update" in this context means chaning the actual state of the model. Any model change will cause the [subscribers](#subscription) to be notified
 
 ### Subscription
 Generally saying **subscription** is receiving some information(maybe something) over some agreement. According to the definition the act of subscription is based on particular subscription subject. Which basically means, that the owner of the subscription must receive an information, if and only if, the particular subject has been changed. Furthermore, the owner of the subject must not be even "disturbed", for any other reason.

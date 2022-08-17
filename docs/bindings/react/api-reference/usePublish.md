@@ -1,5 +1,5 @@
 ---
-id: bindings-api-usepublish
+id: usepublish
 title: usePublish
 tags:
   - react

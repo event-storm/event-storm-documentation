@@ -119,15 +119,15 @@ const config = {
               },
               {
                 label: 'Main concepts',
-                to: '/docs/concepts',
+                to: '/docs/concepts/overview',
               },
               {
                 label: 'Offical bindings',
-                to: '/docs/bindings',
+                to: '/docs/bindings/overview',
               },
               {
                 label: 'API Reference',
-                to: '/docs/api-reference',
+                to: '/docs/api-reference/overview',
               },
             ],
           },

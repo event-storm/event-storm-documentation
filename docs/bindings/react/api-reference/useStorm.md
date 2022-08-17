@@ -1,5 +1,5 @@
 ---
-id: bindings-api-usestorm
+id: usestorm
 title: useStorm
 tags:
   - react

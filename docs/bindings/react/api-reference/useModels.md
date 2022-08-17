@@ -1,5 +1,5 @@
 ---
-id: bindings-api-usemodels
+id: usemodels
 title: useModels
 tags:
   - react
