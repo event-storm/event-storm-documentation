@@ -27,7 +27,7 @@ In the near future it is planned to develop a Browser Extension / Inspector that
 ## What is the library focus?
 
 The main focus areas of the library are:
-- [Simple API](./api.md)
+- [Simple API](./api.mdx)
 - [Performance](./performance.md)
 - [Runtime optimizations](./performance.md#mimimal-data-processing)
 - [Developer experience](./performance.md#maintanance-cost)
