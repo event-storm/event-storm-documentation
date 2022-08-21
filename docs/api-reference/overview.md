@@ -7,7 +7,7 @@ tags:
 sidebar_position: 1
 ---
 
-:::tip
+:::tip Language specification
 The API reference is bringing the examples in typescript
 :::
 

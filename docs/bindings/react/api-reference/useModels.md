@@ -39,7 +39,7 @@ function useModels<T extends IModelConfiguration>(models: IModel<any, T>[], opti
 ## Returns
 - The hook returns the values of the provided models with an array. The array order corresponds to the provider models array order.
 
-:::tip
+:::tip What about unsubscribe?
 The `useModels` hook will handle the unsubscribe process automatically on component unmount.
 :::
 

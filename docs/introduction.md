@@ -11,9 +11,16 @@ sidebar_position: 1
 
 **The Event Storm is a tiny store implementation with pure javascript.**
 Event Storm will help to organize and manage your application's state. The library is deigned to be framework and platform agnotics, which empowers an ability to use it, in **any Javascript runtime**.
-:::info
+:::info Reactjs binding
 There is an official **[React wrapper](https://github.com/event-storm/react-event-storm)** of the Event Storm.
 :::
+
+### When to use Event Storm? 
+
+- Large scale application with a lot of data consumers(1K+)
+- The application is doing a lot of CPU intensive computations
+- The bundle size limited applications(library size 2kb)
+- Microservice applications(no matter using the same technology for microservices or not)
 
 ## Installation
 
@@ -51,19 +58,11 @@ store.dispatch({ name: 'Event Storm - manage your state effectively' });
 store.dispatch(prev => ({ isActive: !prev.isActive }));
 ```
 
-### When to use Event Storm? 
-
-- Large scale application with a lot of data consumers(1K+)
-- The application is doing a lot of CPU intensive computations
-- The bundle size limited applications(library size 2kb)
-- Microservice applications(no matter using the same technology for microservices or not)
-
 ### See it in action
 
 Examples:
  - [**Typescript**](https://codesandbox.io/s/beautiful-currying-bl9dv)
  - [**React**](https://codesandbox.io/s/intelligent-http-iupz5)
-
 
 ## How the documentation is structured?
 

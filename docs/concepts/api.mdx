@@ -1,0 +1,204 @@
+---
+id: api
+title: How the API is designed?
+tags:
+  - concepts
+  - api
+sidebar_position: 6
+---
+
+The API of the library entities are design to:
+- be consistant in provided entities
+- provide usefull subscription types and configurations, 
+- require minimal changes when migrating from other libraries
+
+## Model
+
+```typescript
+import { createModel } from 'event-storm';
+
+const model1 = createModel();
+// When defining a model it is often usefull to have a default value
+const model2 = createModel({});
+```
+
+In the above example you can notice 2 different ways to instantiate a model - with and without a **default state**. The model can receive and hold any type of information, meand any data type.
+:::info About model type
+There is not restriction on changing the model data types during the runtime. Dispatching a new value can be with a different type. However, it is not recommended to change the model type after instantiation, due to performance reasons.
+:::
+
+### Subscribing to a model
+
+```typescript
+import import { createModel } from 'event-storm';
+
+const model = createModel<string>('initial');
+
+model.subscribe(value => {
+  console.log(value);
+});
+```
+
+**Subscription** is the main feature of the model. In the example with subcription, the provided function will not be called until some `dispatch` happens. It is possible to configure this behaviour and make the subscription fire immediately:
+```typescript
+model.subscribe(value => {
+  console.log(value); // 'initial'
+}, { needPrevious: true });
+```
+
+### Updating the model
+
+```typescript
+import import { createModel } from 'event-storm';
+
+const model = createModel<string>('initial');
+
+model.subscribe(value => {
+  console.log(value); // 'final'
+});
+
+model.dispatch('final');
+```
+
+To update the model you can use the `dispatch` method. The given value will make the subscribers be called with that value. By default, the model will not fire duplicated changes. Why? Assuming that the code using a model will be a pure functional, the Event Storm library is preventing duplicated changes to avoid useless compuations. Still, in real life applications it can be that duplicated changes are necassary, or the dispatchev value is the event, which must be properly handled. If that's the case you can use:
+```typescript
+model.dispatch('final', { fireDuplicates: true });
+```
+This will make model to skip checks and run the subscribers anyway.
+
+## VirtualModel
+
+It is recommended to keep raw information(source of truth) inside models. In that case a question is rising, how to process the function? Do I need to subscribe and process the information inside the subscription callback? And finally what if the same processing is required in multiple places?
+The Event Storm library is providing a **virtualModel** concept to solve all those issues.
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="models/rectSizes.ts">
+```
+
+```typescript
+import { createModel } from 'event-storm';
+
+interface IRect {
+  width: number;
+  height: number;
+}
+
+const rectSizes = createModel<IRect>({ width: 100, height: 100 });
+
+export default rectSizes;
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="models/rectSquare.ts">
+```
+
+```typescript
+import rectSizes from './rectSizes';
+
+const rectSquare = createVirtualModel<number>({
+  handler: ({ width, height }) => width * height,
+  models: [rectSizes],
+});
+
+rectSquare.subscribe(value => {
+  console.log(value);
+});
+```
+
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+
+As you can see in the example, **createVirtualModel** receives the `handler` function and `models`. Each time the one of the provided models is being updated the `handler` function will be executed.
+:::info models order matter
+The handler function will receive the same order of model's state as provided in the models array.
+:::
+
+### Subcribing to virtual model
+
+It is possible to subscribe to virtual model. Model change will recompute the data processing and call all the subscribers. The virtual model as the model itself has the same [subscription configuration](#subscribing-to-a-model).
+
+### Updating the virtual model
+:::caution Virtual model can't be published
+The virtual model is just a derived state. The virtual model is representing the infromation processing, not the infromation itself. This means the virtual model can't change during the time.
+:::
+
+## Storm
+In more complex situations it is important to describe different entities infromation state at once. It is also worth nothing to say, that it is reducing the time spent on generating that much code for each infromation entity. The Event Storm library is providing `storm` abstraction for this purposed.
+
+```typescript
+import { createStorm } from 'event-storm';
+
+const storm = createStorm({
+  firstname: 'Bob',
+  lastname: 'Smith',
+});
+
+storm.subscribe((state, subscribe) => {
+  const firstname = subscribe(state.firstname);
+  // additional handling
+});
+```
+
+The `createStorm` is similiar to **[createModel](#model)**. It is not possible to preserve default state for **storm**. It is the only small difference between **model** and **storm** when creating them.
+
+### Subscribing to the storm
+
+The storm main feature is providing individual, decentralized subscriptions, while the storm itself is centralized at creation. What does this mean? It means it is possible to susbcribe to storm some fragment, and consume only that data updates. Storm other part updates will not trigger subscription run. The below example will show how to subscribe to single fragment of the storm.
+```typescript
+import { createStorm } from 'event-storm';
+
+const storm = createStorm({
+  firstname: 'Bob',
+  lastname: 'Smith',
+  age: 17
+});
+
+storm.subscribe((state, subscribe) => {
+  const firstname = subscribe(state.firstname);
+  const lastname = subscribe(state.lastname);
+
+  // ...
+});
+```
+
+The **subcribe** method receive the **storm** actual state and **subscribe** function. The provided second function can receive any peace of storm state, subscribe to that peace and return the actual value of that peace. There is no limit how many time to use the **subscribe** argument. You can calle it as many times as you need. Each call will instantiate a new subscription.
+:::info Subscription argument
+There is no certain limitation to call the **subcribe** argument on the same storm segment mutliple times. It will not result in having more than one subscription for that segment anyway.
+:::
+
+### Updating the storm
+The `storm` update is similiar to [model](#model) update functionality. Here also, there is the `dispatch` method. When calling dispatch with some value, it will make the appropriate updates on the storm and make the subcribers fire. During the calculation of update storm determines which tree nodes are matter for update, which not. After tree traversal, only the changed nodes and their subscribers will be notified on that dispatch.
+```typescript
+import { createStorm } from 'event-storm';
+
+const storm = createStorm({
+  firstname: 'Bob',
+  lastname: 'Smith',
+  age: 17
+});
+
+storm.dispatch({ age: 20 });
+```
+The storm also, by default will not fire the subscribers for duplicated change. You can provide the second argument to override the default behaviour.
+:::note About duplicated changes
+Even thought you can provide **fireDuplicates** to storm dispatch, it will only fire that change on the subcribed nodes. You can't use this configuration as whole storm force update.
+:::
+
+## What else?
+
+All the described **dispatch** functions(for [storm](#updating-the-storm) and [model](#updating-the-model)) can also be called with functional approach.
+```typescript
+import import { createModel } from 'event-storm';
+
+const isActive = createModel<boolean>(true);
+
+isActive.dispatch(prev => !prev);
+```
+
+For more details see the [API section](/docs/api-reference).

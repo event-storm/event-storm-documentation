@@ -45,7 +45,7 @@ function useStorm<T, G extends any>(
 ## Returns
 The `useStorm` will return the return value of `selectFragment` argument call. Defaults to whole storm state.
 
-:::tip
+:::tip What about unsubscribe?
 The `useStorm` hook will handle the unsubscribe process automatically on component unmount.
 :::
 
@@ -74,6 +74,6 @@ export type TSelectFragment<T> = (
 
 ## Returns
 The return value of this function will be returned from the `useStorm` hook.
-:::tip
+:::tip Optimization technique
 Optmize the rerenders by subscribing(using `subscribe` function) on the right portions of the storm
 :::

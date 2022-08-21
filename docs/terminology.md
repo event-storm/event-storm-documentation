@@ -9,7 +9,7 @@ sidebar_position: 2
 ---
 
 The Event Storm is based on event sourcing technology. To organize such a system you need to define what is the information that needs to be considered as a source. 
-:::caution
+:::caution What to understand as context?
 Information in this context, means the user specified information unit. For the current technology it doesn't matter if the information is a single atomic or complex object structure, the only thing which matters is the user intentional definition.
 :::
 

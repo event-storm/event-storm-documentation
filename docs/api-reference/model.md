@@ -9,7 +9,7 @@ sidebar_position: 3
 ---
 
 Creating a single information unit. Use this method to have syncronized updates for all the subscribers.
-:::info
+:::info Model type is not chaning the behaviour
 Even when proding object structure, model will allways update all the subscribers. For individual subscription use [storm](./storm.md).
 :::
 ## createModel
@@ -28,10 +28,7 @@ Model keeps the options list provided at the creation time. In order to update m
 ```typescript
 import { createModel } from 'event-storm';
 
-const userModel = createModel();
-
-// When defining a model it is often usefull to have a **default value**:
-const clientModel = createModel({});
+const userModel = createModel({});
 ```
 
 ### Methods

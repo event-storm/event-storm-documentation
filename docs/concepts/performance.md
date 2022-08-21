@@ -7,24 +7,26 @@ tags:
 sidebar_position: 2
 ---
 
-The library is concentrated in providing highly optimized subscription mechanism. 
+The library is concentrated in providing highly optimized subscription mechanism. The library addressed the following areas regarding the performance:
+- Bundle size(load performance)
+- Maintanance cost(development performance)
+- Minimal data processing(CPU performance)
 
-The above-mentioned libraries(and not only them) are using a **centralized concept of keeping the information**.
-What does this mean?
-When creating a store it is described as an object and also it corresponds to a single tree in the memory.
-The main way to achieve an update is by changing a reference in the in-memory tree. For listening to the events you need to
-subscribe to some node(which is not a subscription). You can take a look at this [simple example](https://codesandbox.io/s/redux-update-81zjv?file=/src/store/index.js). "anyway updated" is logging at any time something in the store changes. The main problem here is the centralized data store. To determine whether the change is needed for one or another consumer a centralized store needs to calculate the exact usage, then prevent the update.
-The library is suggesting a decentralized store with a single user interface as before. This means you will describe and act with the store like usual. Under the hood, it will keep each node separate. This will allow us to not calculate each time whether or not to prevent the update.
+## Bundle size
+The application bundle is being dependent on library initial cost, modularity support and integration cost. The Event Storm library is providing built-in support for [immer](https://immerjs.github.io/immer/), and with that only dependency the library size is [4.5kB(MINIFIED + GZIPPED)](https://bundlephobia.com/package/event-storm@3.0.0). The Event Storm library is lazy by design. What does it mean? It is possible to add/remove/update or import different store assets lazely:
+- storm handlers(e.g. some dispatch and data handler, complex data selector)
+- totally new storm instance
+The lazyness is allowing to organize, and split the code in a way which is appropriate to exact application.
 
-<details>
-  <summary>Deep look at the concept</summary>
-  Conceptually, in an event store, only the events of a dossier or policy are stored. The idea behind it is that the dossier or policy can be derived from these events(**Mainly the same as the single source of truth**).
-  The events (and their corresponding data) are the only "real fact"s(**name `model` will be used in the library scope**)
-  that should be stored in the database. The instantiation of all other objects can be derived from these events.
-  The derived data will be instantiated in memory(**name `virtual model` will be used in library scope**). In an event store database, this means that all objects that should be derived, are not stored in the database. Instead, these objects are instantiated 'on the fly' in memory by the code based on the events. After usage of these objects, the instantiated
-  objects are removed from memory.
+As the library is aware of centralized data management, there is no need to add additional "meta-code" to support new data manipulation. The Event Storm library is allowing to concentrate the source code of the application on the application business logic. Less code written, more light weight bundle at the end.
 
-  Another crucial part of an event store database is that events that are stored are not allowed to be changed.
-  The only way to change (or better: correct) these events is to instantiate a new event with the new values(**So as we know no mutation allowed**).
-</details>
+## Maintanance cost
+The event Storm library has not centralized data management points. It is not forcing to write action/reducer stuff, or any specific code hints or utility functions. The structure is simple as it can be, just adding the data peace in store and making an update with any handler function. The minimalistic touch points allow Event storm library to be easy to maintain solution. No additional time is needed to generate boilerplate code.
 
+## Mimimal data processing
+To ensure runtime performance the Event storm library is designed to compute as less as possible. The storm updates will be passed to the subscribers in the same event loop cycle. The updates are done synchronously, so it's safe to write code after dispatching data change. Any line after dispatch can access already updated store state. 
+As already described in the [motivation](/docs/motivation) section, the described issues are addressed and fixed by Event Storm.
+**There is no silver bullet in optimization field**. When dealing with CPU optimizations there are 2 aspects:
+- CPU working time
+- Memory
+Whoever tries to optimize the one, it will be at the expense of the other. So, the above described CPU optimizations are also at the expense of memory consumption. Does this mean you can have memory issues? It's hardly possible to cause memory issues with the Event Storm solution, but anyway any system can test the application memory usage with the Event Storm or an alternative solution. 
