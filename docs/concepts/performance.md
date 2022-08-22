@@ -13,7 +13,10 @@ The library is concentrated in providing highly optimized subscription mechanism
 - Minimal data processing(CPU performance)
 
 ## Bundle size
-The application bundle is being dependent on library initial cost, modularity support and integration cost. The Event Storm library is providing built-in support for [immer](https://immerjs.github.io/immer/), and with that only dependency the library size is [4.5kB(MINIFIED + GZIPPED)](https://bundlephobia.com/package/event-storm@3.0.0). The Event Storm library is lazy by design. What does it mean? It is possible to add/remove/update or import different store assets lazely:
+The application bundle is being dependent on library initial cost, modularity support and integration cost. The Event Storm library is providing built-in support for [immer](https://immerjs.github.io/immer/), and with that only dependency the library size is [4.5kB(MINIFIED + GZIPPED)](https://bundlephobia.com/package/event-storm@3.0.0). The Event Storm library is lazy by design. 
+
+What does it mean? 
+It is possible to add/remove/update or import different store assets lazely:
 - storm handlers(e.g. some dispatch and data handler, complex data selector)
 - totally new storm instance
 The lazyness is allowing to organize, and split the code in a way which is appropriate to exact application.
