@@ -26,7 +26,10 @@ In the documentation context when saying **model**, we refer to this object stru
 
 ### VirtualModel
 As mentioned in the main section, models can be combined to construct bigger information segments. To keep the developer experience the same and manage models composition the Event Storm library is providing [createVirtualModel](/docs/api-reference/virtualModel) function.
-Why do you need to combine the existing models? The principle of single source of truth, and event sourcing in general, suggesting you to keep the information source and it's management in a single place(memory segment). The **virtual model** is using existing information to create a higher level abstraction on top of that, in other words, deriving the existing information.
+
+Why do you need to combine the existing models?
+
+The principle of single source of truth, and event sourcing in general, suggesting you to keep the information source and it's management in a single place(memory segment). The **virtual model** is using existing information to create a higher level abstraction on top of that, in other words, deriving the existing information.
 When working with virtual model it's better to thing of a process than an information unit. The deriviation process, information processing and information presentation are coupled within the virtual model. 
 
 ### Update(updating the information/model)
