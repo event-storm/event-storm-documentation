@@ -38,11 +38,12 @@ As the model must be updated the library is providing a method called **dispatch
 ### Subscription
 Generally saying **subscription** is receiving some information(maybe something) over some agreement. According to the definition the act of subscription is based on particular subscription subject. Which basically means, that the owner of the subscription must receive an information, if and only if, the particular subject has been changed. Furthermore, the owner of the subject must not be even "disturbed", for any other reason.
 
-Coming to the computer sceince. In CS the above can be described as a regular situation between observer and consumer on observable subject. Either it can be the event, subcriber and subscription. 
+Coming to the computer sceince. In CS the above can be described as a regular situation between observer and consumer on observable subject. It can be either the event, subscriber and subscription. 
 
 As the information is provided with [model](#model) abstraction, the **subscription** is an ability of model. So each model will have a method to be subscribed. Any [update](#update) or [dipsatch](#dispatch) process will cause the model subscription to run with the model's last state.
 
 ### Storm
 When dealing with a more generic state of a complex system(e.g. application), the **model** abstraction is making a lot of boilerplate inside the codebase. Managing a lot of minimal state's and their combination is not the best idea to go with. The **storm** is the simplified abstraction for creating multiple models at once. The **storm** is contructed from smaller information units and **is not itself the information source**. Right the opposite, the storm combines the infromation of the models and provides one unique interface to work with that models.
+
 Storm has always a tree structure. **It is possible to subscribe to each node** of the storm individually.
 As an information presentation, the storm, provides similiar abstraction for managing the underlying models - [subscription](#subscription) and [dispatching](#dispatch).
