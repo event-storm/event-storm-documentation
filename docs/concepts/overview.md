@@ -22,7 +22,7 @@ Currently the Event Storm supports:
   - [Simple logger](https://github.com/event-storm/event-storm-logger) - Adding a simple logger middleware, will show the storm updates in the console
 
 ## Future plans 
-In the near future it is planned to develop a Browser Extension / Inspector that will allow to get insights for each update in the store, visualize it. The extension will allow developers to have better developer experience(DX) ans see the whole picture of what is going on in the store. For sure this will improve debugging process experience. You can track the [progress here](https://github.com/event-storm/event-storm/projects/2)
+In the near future it is planned to develop a Browser Extension / Inspector that will allow to get insights for each update in the store, visualize it. The extension will allow developers to have better developer experience(DX) and see the whole picture of what is going on in the store. For sure this will improve debugging process experience. You can track the [progress here](https://github.com/event-storm/event-storm/projects/2)
 
 ## What is the library focus?
 
