@@ -27,11 +27,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: ({ docPath }) => `https://github.com/event-storm/event-storm-documentation/tree/main/${docPath}`,
-        },
-        blog: {
-          showReadingTime: true,
-          editUrl: ({ blogPath }) => `https://github.com/event-storm/event-storm-documentation/tree/main/${blogPath}`,
+          editUrl: ({ docPath }) => `https://github.com/event-storm/event-storm-documentation/tree/main/docs/${docPath}`,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
