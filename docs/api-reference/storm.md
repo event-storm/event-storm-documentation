@@ -10,6 +10,7 @@ sidebar_position: 1
 ---
 
 In general, in event sourcing technology there is no place to have a centralized single information segment. In contrast to having this, the composition and deriving the real information is suggested. The Event Storm library suggests for this purpose usage of [virtual models](./virtualModel.md). On the other hand, it's straightforward, that at scale this will result in a lot of boilerplate code. That’s why the library is suggesting a store concept which has the full power of decentralized data store.
+
 What does this mean? The library will organize subscrition and data store updates in such a manner to keep track of individual subscription and and individual updates. In other words, The Event Storm claims to update only for the given subscription.
 
 ## createStorm
@@ -60,8 +61,10 @@ To subcribe to a particular section use the second argument of the sucbcription 
 type IStormMiddleware<T> = (nextState: IStormState<T>, prevState: IStormState<T>, configs: AnyObject) => void
 ```
 
-The middleware will be provided the next state, prev state and the corresponding dispatch configuration. Note, the middleware will be called before the storm update.
-
+The middleware will be provided the next state, prev state and the corresponding dispatch configuration. 
+:::info Note
+The middleware will be called before the storm update.
+:::
 ### IStormState
 ``` typescript
 type IStormState<Type> = {
