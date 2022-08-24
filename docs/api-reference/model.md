@@ -10,7 +10,7 @@ sidebar_position: 3
 
 Creating a single information unit. Use this method to have syncronized updates for all the subscribers.
 :::info Model type is not chaning the behaviour
-Even when proding object structure, model will allways update all the subscribers. For individual subscription use [storm](./storm.md).
+Even when providing object structure, model will always update all the subscribers. For individual subscription use [storm](./storm.md).
 :::
 ## createModel
 
@@ -22,7 +22,9 @@ Using an object value will result in updates on each key change. In other words 
 
 ### Model internal structure
 Model itself internally keeps track of its lifecycle.
+
 Model has its own list of subscribers. Whenever you are using the subscribe method it will be checked whether it is already registered or not and if not, it will register(exactly push) the provided function to the models internal subscribers list. The subscribe function will return a function. You can call that function to unsubscribe from the model.
+
 Model keeps the options list provided at the creation time. In order to update model's options you can use the [setOptions method](#imodel).
 
 ```typescript
@@ -49,7 +51,7 @@ export interface IModel<T, G extends IModelOption = IModelOption> {
 |   -    |   -  |      -     |
 | getState | () => any | The method returns the fresh state of the model |
 | setOptions | (option: [IModelOptions](#imodeloptions)) => void | The model option can be changed at any time |
-| dispatch | (value: any, option?: [IModelOptions](#imodeloptions)) => void) => void | Promise&lt;void> | The method will update the internal state of the model. Depending on the option the state change will/or will not update all the subscribers. Note: its possible to `await` for the update.
+| dispatch | (value: any, option?: [IModelOptions](#imodeloptions)) => void) => void &#124; Promise&lt;void> | The method will update the internal state of the model. Depending on the option the state change will/or will not update all the subscribers. Note: its possible to `await` for the update.
 | subscribe | (callback: (nextValue: any, options?: [IModelOptions](#imodeloptions)) => void, option?: [ISubscriptionOptions](#isubscriptionoptions)&lt;T>) => () => void | The method receive a callback. On each model update the receive the callback will be fired with the last updated value. When firing, the callback will be provided with second argument(if exists). The second argument is the same option with triggered the model state change(i.e. dispatch configurations).
 
 
