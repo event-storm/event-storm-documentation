@@ -1,6 +1,7 @@
 ---
 id: model
 title: Model
+description: Creating a single information unit. Use this method to have synchronized updates for all the subscribers. Model can accept any JS type 
 tags:
   - api
   - model
@@ -8,7 +9,7 @@ tags:
 sidebar_position: 3
 ---
 
-Creating a single information unit. Use this method to have syncronized updates for all the subscribers.
+Creating a single information unit. Use this method to have synchronized updates for all the subscribers.
 :::info Model type is not chaning the behaviour
 Even when providing object structure, model will always update all the subscribers. For individual subscription use [storm](./storm.md).
 :::

@@ -1,6 +1,7 @@
 ---
 id: subscription
 title: Subscription types
+description: The Event Storm is presenting 3 levels of subscription&#58; active subscription, passive subscription, condition-based subscription
 tags:
   - react
   - bindings
@@ -19,7 +20,8 @@ The `event-storm` is presenting 3 levels of subscription:
 ## The background problem
 
 Imagine a react application. You have a component and it is subscribed to store. It is using `sizes` and `cards` properties.
-The `cards` are used to render a list. Let's imagine you want to save in backend the provided `sizes` for clicked `card`. So, the `sizes` information is used whenever you are clicking on a particular `card`. In most store managers(e.g. Overmind, Redux) your component will be updated on `sizes` change even if the user will never click to the list.
+The `cards` are used to render a list. Let's imagine you want to save in backend the provided `sizes` for clicked `card`. So, the `sizes` information is used whenever you are clicking on a particular `card`. In most store managers(e.g. Overmind, Redux) your component will be updated on `sizes` change even if the user will never click on the list.
+
 To avoid unnecassary renders, you'll need to directly access the store in your `card`'s click event handler. Which is most probably not the solution you're looking for. With the workarround you'll get store usage in a "react-way" as usual, also in a "none react-way"(accessing the store diretly, not via `useStore` or some other hook). Also, worth nothing that you'll have components where you need more than one handler. So you'll need to duplicate the code that accesses the store.
 
 

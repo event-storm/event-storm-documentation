@@ -1,6 +1,7 @@
 ---
 id: overview
 title: API Overview
+description: The Event Storm library is providing the following top level exports&#58; createStorm, createModel, persisted, createVirtualModel
 tags:
   - api
   - introduction
