@@ -1,6 +1,7 @@
 ---
 id: overview
 title: The bigger picture
+description: The Event Storm library is focused on providing a high performance in memory data store. Focusing on performance, it also provides a simple and familiar API
 tags:
   - concepts
   - structure

@@ -1,6 +1,7 @@
 ---
 id: performance
 title: Performance impact
+description: The library addressed the following areas regarding the performance&#58; bundle size, maintenance cost, minimal data processing
 tags:
   - concepts
   - performance
@@ -9,7 +10,7 @@ sidebar_position: 2
 
 The library is concentrated in providing highly optimized subscription mechanism. The library addressed the following areas regarding the performance:
 - Bundle size(load performance)
-- Maintanance cost(development performance)
+- Maintenance cost(development performance)
 - Minimal data processing(CPU performance)
 
 ## Bundle size
