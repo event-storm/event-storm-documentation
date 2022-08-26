@@ -1,6 +1,7 @@
 ---
 id: introduction
-title: Introduction
+title: Introduction to Event Storm
+description: Event Storm helps to organize and manage your application's state. The library is designed to be framework and platform agnostics.
 tags:
   - intro
   - introduction
@@ -10,7 +11,7 @@ sidebar_position: 1
 # Introduction to Event Storm
 
 **The Event Storm is a tiny store implementation with pure javascript.**
-Event Storm will help to organize and manage your application's state. The library is deigned to be framework and platform agnotics, which empowers an ability to use it, in **any Javascript runtime**.
+Event Storm will help to organize and manage your application's state. The library is designed to be framework and platform agnostics, which empowers an ability to use it, in **any Javascript runtime**.
 :::info Reactjs binding
 There is an official **[React wrapper](https://github.com/event-storm/react-event-storm)** of the Event Storm.
 :::
