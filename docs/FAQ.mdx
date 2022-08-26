@@ -9,8 +9,10 @@ sidebar_position: 4
 ---
 
 ## When should I use Event Storm?
-The Event Storm is a general purpose state management solution. You can use the library in large project, as well as in small ones. The library is providing a choice for smaller state's. If you're new to state management at all you can start with creating a [model](/docs/api-reference/model). Meanwhile, if you're already an advanced user of state management you can start using the [storm](docs/api-reference/storm) directly.
-More specifically if you're already using a state management and suffering with performance problems, definetely you need to give a try of the Event storm. The library was initially created [for that reason](/docs/motivation).
+The Event Storm is a general purpose state management solution. You can use the library in large project, as well as in small ones. The library is providing a choice for smaller state's. If you're new to state management at all, you can start with creating a [model](/docs/api-reference/model). 
+
+Meanwhile, if you're already an advanced user of state management you can start using the [storm](docs/api-reference/storm) directly.
+More specifically, if you're already using a state management and suffering from performance problems, definetely you need to give a try of the Event storm. The library was initially created [for that reason](/docs/motivation).
 
 ## Can Event storm only be used with React?
 No. You are free to use the library in any environment with any framework(library) you wish. The Event storm is design in to be used in any Javascript hoisted environment(browser, nodejs, native, etc.).
@@ -81,7 +83,8 @@ export const usePublish = options => useBasePublish(storm, options);
 ```
 
 ## Why the library has no action or reducer?
-The Event Storm is following the KISS principle. The simpler the code, more easy to maintain it. The main reason for having unified actions or reducers, is to ensure that all the updates for the information are done from single sources. Thus it's easier to debug and to find the issues. Unfortunately, as far as the project is being scaled, there is moreoften need to update the same state from multiple action/reducers, and the abstraction is bringing more overhead, rather than solving real problem.
+The Event Storm is following the KISS principle. The simpler the code, the easier to maintain it. The main reason for having unified actions or reducers, is to ensure that all the updates for the information are done from single sources. Thus it's easier to debug and to find the issues. Unfortunately, as far as the project is being scaled, there is moreoften need to update the same state from multiple action/reducers, and the abstraction is bringing more overhead, rather than solving real problem.
+
 The Event Storm library suggests to keep the information updates from a single functions and call them directly. There is no need to keep the centralized condition determinator to make the updates just with that functions. Furthermore, the keeping the updates as simple as function will decrease the boilerplate when trying to add some updater dynamically.
 
 ## Should I keep everything inside one storm?

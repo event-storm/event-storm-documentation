@@ -56,7 +56,7 @@ interface IVirtualModelOptions<T> extends IModelOptions {
 
 | Method | Type | Required | Description |
 |   -    |   -   |    -     |     -      |
-| handler | () => T | :white_check_mark: | Manipulate with models inside this method. The return value fo this method will be the virtual model's state
+| handler | () => T | :white_check_mark: | Manipulate with models inside this method. The return value for this method will be the virtual model's state
 
 | Properties | Type | Required | Description |
 |   -       |   -   |    -     |     -      |
