@@ -1,6 +1,7 @@
 ---
 id: overview
 title: Overview
+description: The React Event Storm is providing a lightweight, minimal abstraction for the Event Storm library
 tags:
   - react
   - Event Storm

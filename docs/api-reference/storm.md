@@ -1,6 +1,7 @@
 ---
 id: storm
 title: Storm
+description: The library will organize subscrition and data store updates in such a manner to keep track of individual subscription and individual updates. In other words, The Event Storm claims to update only for the given subscription.
 tags:
   - api
   - storm
@@ -11,7 +12,7 @@ sidebar_position: 1
 
 In general, in event sourcing technology there is no place to have a centralized single information segment. In contrast to having this, the composition and deriving the real information is suggested. The Event Storm library suggests for this purpose usage of [virtual models](./virtualModel.md). On the other hand, it's straightforward, that at scale this will result in a lot of boilerplate code. That’s why the library is suggesting a store concept which has the full power of decentralized data store.
 
-What does this mean? The library will organize subscrition and data store updates in such a manner to keep track of individual subscription and and individual updates. In other words, The Event Storm claims to update only for the given subscription.
+What does this mean? The library will organize subscrition and data store updates in such a manner to keep track of individual subscription and individual updates. In other words, The Event Storm claims to update only for the given subscription.
 
 ## createStorm
 The Event Storm library is providing a `createStorm` method. The function supports a single argument, the default state.

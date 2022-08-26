@@ -1,6 +1,7 @@
 ---
 id: usemodels
 title: useModels
+description: The Event Storm models also can be used with React components. useModels can receive a models array, subscribe to them and return their last states
 tags:
   - react
   - Event Storm
