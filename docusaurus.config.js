@@ -164,6 +164,12 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      metadata: [
+        {
+          name: 'google-site-verification',
+          content: 'fuUSqInprmw3whUj1XNO38TXferfveQhzTLtLb87XE0',
+        },
+      ],
     }),
 };
 

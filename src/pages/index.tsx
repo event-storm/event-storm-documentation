@@ -28,10 +28,12 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
+  console.log(useDocusaurusContext());
   return (
     <Layout
       title={`${siteConfig.title}: ${siteConfig.tagline}`}
-      description="The Event Storm is a javascript state manager. Boost your application performance with Event Storm.">
+      description="The Event Storm is a javascript state manager. Boost your application performance with Event Storm."
+    >
       <HomepageHeader />
       <main>
         <HomepageFeatures />
