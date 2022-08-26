@@ -36,6 +36,11 @@ const config = {
           trackingID: 'GTM-WXRQ7QL',
         },
       }),
+      {
+        gtag: {
+          trackingID: 'GTM-WXRQ7QL',
+        },
+      },
     ],
   ],
 
