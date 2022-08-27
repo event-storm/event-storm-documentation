@@ -1,6 +1,7 @@
 ---
 id: virtualmodel
 title: Model with state derivation
+description: It is possible to derive the state of the model and compose abstraction on that derivation. The abstraction is called virtual model
 tags:
   - api
   - model

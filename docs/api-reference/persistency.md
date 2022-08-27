@@ -1,6 +1,7 @@
 ---
 id: persistency
 title: Make the store persistant
+description: You can easily make your store's any segment to be persisted by using the respective function.
 tags:
   - api
   - store
@@ -9,7 +10,7 @@ tags:
 sidebar_position: 5
 ---
 
-You can easly make your store any segment to be persisted by `persisted` function.
+You can easily make your store's any segment to be persisted by `persisted` function.
 
 ## persisted
 ```typescript
@@ -43,8 +44,7 @@ interface IPersistOptions<T> {
 ### Methods
 | Method | Type | Description |
 |   -    |   -   |      -     |
-| beforeunload | (storm: [IStormState](./storm.md)&lt;T>) => Partial&lt;[IStormState](./storm.md)&lt;T>> | method is called right before the browser unload event. It will receive the current storm state as an argument.
-It can return any storm fragment as a return value. The return value will be persisted. |
+| beforeunload | (storm: [IStormState](./storm.md)&lt;T>) => Partial&lt;[IStormState](./storm.md)&lt;T>> | method is called right before the browser unload event. It will receive the current storm state as an argument. It can return any storm fragment as a return value. The return value will be persisted. |
 
 ### Properties
 

@@ -1,6 +1,7 @@
 ---
 id: usepublish
 title: usePublish
+description: The publish hook, is simply re exporting of the storm.publish method. Arguments&#58; storm (the storm object, for which the publish method will be provided)
 tags:
   - react
   - Event Storm
@@ -9,7 +10,7 @@ tags:
 sidebar_position: 2
 ---
 
-The publsh hook, is simply reexporting of the `storm.publish` method.
+The publish hook, is simply re exporting of the `storm.publish` method.
 
 ```typescript
 import { createStore } from 'event-storm';
