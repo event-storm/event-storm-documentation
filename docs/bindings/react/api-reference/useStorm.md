@@ -1,7 +1,7 @@
 ---
 id: usestorm
 title: useStorm
-description: The storm inside react components can be used with the help of useStorm hook. Arguments&#58; store, selectFragment, options
+description: "The storm inside react components can be used with the help of useStorm hook. Arguments: store, selectFragment, options"
 tags:
   - react
   - Event Storm

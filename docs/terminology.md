@@ -1,7 +1,7 @@
 ---
 id: terminology
 title: The terminology
-description: The Event Storm is based on event sourcing technology. To organize the system you need to define what information needs to be considered as a source. 
+description: The Event Storm is based on event sourcing technology. To organize the system you need to define what information needs to be considered as a source
 tags:
   - terminology
   - glossary
