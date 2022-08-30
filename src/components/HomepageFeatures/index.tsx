@@ -16,13 +16,13 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Event Storm is designed from the ground up to be an easy replacement
-        for your state management choice. Already fimiliar API with an optimized,
-        decentialized subscription mechanism
+        for your state management choice. Already familiar API with an optimized,
+        decentralized subscription mechanism
       </>
     ),
   },
   {
-    title: 'Performace centric',
+    title: 'Performance Centric',
     Svg: require('@site/static/img/performance-centric.svg').default,
     description: (
       <>
@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'UI agnostic',
+    title: 'UI Agnostic',
     Svg: require('@site/static/img/ui-agnostic.svg').default,
     description: (
       <>
