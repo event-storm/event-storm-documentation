@@ -1,7 +1,7 @@
 ---
 id: overview
 title: Supported bindings
-description: The library officially supports the following bindings&#58; React - The library provides simple hooks on top of the Event Storm functionality. The binding is about 0.4kb
+description: "The library officially supports the following bindings. React - The library provides simple hooks on top of the Event Storm functionality. The binding is about 0.4kb"
 tags:
   - bindings
   - wrappers
