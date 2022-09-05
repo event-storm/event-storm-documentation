@@ -7,14 +7,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Event Storm',
-  tagline: 'Store solution with decentralized subscription',
-  url: 'https://event-storm.github.io',
-  baseUrl: '/event-storm-documentation/',
+  tagline: 'Store sulution with decentralized subscription',
+  url: 'https://eventstorm.tech',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/event-storm.png',
   organizationName: 'event-storm',
-  projectName: 'event-storm-documentation.github.io',
+  projectName: 'Event storm documentation',
   trailingSlash: true,
   i18n: {
     defaultLocale: 'en',
@@ -27,7 +27,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: ({ docPath }) => `https://github.com/event-storm/event-storm-documentation/tree/main/docs/${docPath}`,
+          editUrl: ({ docPath }) => `https://github.com/event-storm/tree/main/docs/${docPath}`,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

@@ -14,7 +14,7 @@ function FAQ() {
               "name": "When should I use Event Storm?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>The Event Storm is a general purpose state management solution. You can use the library in large project, as well as in small ones. The library is providing a choice for smaller state's. If you're new to state management at all, you can start with creating a <a href='/event-storm-documentation/docs/api-reference/model/'>model</a>. </p><p>Meanwhile, if you're already an advanced user of state management you can start using the <a href='/event-storm-documentation/docs/faq/docs/api-reference/storm/'>storm</a> directly. More specifically, if you're already using a state management and suffering from performance problems, definetely you need to give a try of the Event storm. The library was initially created <a href='/event-storm-documentation/docs/motivation/'>for that reason</a>.</p>"
+                "text": "<p>The Event Storm is a general purpose state management solution. You can use the library in large project, as well as in small ones. The library is providing a choice for smaller state's. If you're new to state management at all, you can start with creating a <a href='/docs/api-reference/model/'>model</a>. </p><p>Meanwhile, if you're already an advanced user of state management you can start using the <a href='/docs/faq/docs/api-reference/storm/'>storm</a> directly. More specifically, if you're already using a state management and suffering from performance problems, definetely you need to give a try of the Event storm. The library was initially created <a href='/docs/motivation/'>for that reason</a>.</p>"
               }
             },
             {
@@ -46,7 +46,7 @@ function FAQ() {
               "name": "Should I keep everything inside one storm?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>The library is not limited to just one storm instance. It is possible to create as many library instances as you need. You can relay on your use-case and separate the application information in a modular manner. You can also use <a href='/event-storm-documentation/docs/api-reference/model/'>models</a> when dealing with a single shared information units.</p>"
+                "text": "<p>The library is not limited to just one storm instance. It is possible to create as many library instances as you need. You can relay on your use-case and separate the application information in a modular manner. You can also use <a href='/docs/api-reference/model/'>models</a> when dealing with a single shared information units.</p>"
               }
             },
             {
@@ -54,7 +54,7 @@ function FAQ() {
               "name": "How to organize the migration to Event storm?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>The Event Storm is designed to be an easy replacement for existing state management solutions. For that reason the naming is mostly kept the same. When migrating from action/reducer architecture(e.g. Redux) you can:</p><ul><li>specify your reducers as a separate functions</li><li>get rid of actions and actions types</li><li>replace dispatching actions to calling the direct update functions</li></ul><p>If you're using React:</p><ul><li>The library has no React.Provider, so you can simple get rid of it</li><li><a href='/event-storm-documentation/docs/bindings/react/api-reference/useStorm/'>useStorm</a> is similiar to other state management hooks. You can skip using the <a href='/event-storm-documentation/docs/bindings/react/api-reference/useStorm/#tselectfragment'>second argument</a> for the first migration phase. By default the subscription function will be assigned to subscribe to whole store. You can address the performance optimizations later.</li></ul>"
+                "text": "<p>The Event Storm is designed to be an easy replacement for existing state management solutions. For that reason the naming is mostly kept the same. When migrating from action/reducer architecture(e.g. Redux) you can:</p><ul><li>specify your reducers as a separate functions</li><li>get rid of actions and actions types</li><li>replace dispatching actions to calling the direct update functions</li></ul><p>If you're using React:</p><ul><li>The library has no React.Provider, so you can simple get rid of it</li><li><a href='/docs/bindings/react/api-reference/useStorm/'>useStorm</a> is similiar to other state management hooks. You can skip using the <a href='/docs/bindings/react/api-reference/useStorm/#tselectfragment'>second argument</a> for the first migration phase. By default the subscription function will be assigned to subscribe to whole store. You can address the performance optimizations later.</li></ul>"
               }
             }
           ]
