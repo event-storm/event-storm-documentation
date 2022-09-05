@@ -1,7 +1,7 @@
 ---
 id: performance
 title: Performance impact
-description: The library addressed the following areas regarding the performance&#58; bundle size, maintenance cost, minimal data processing
+description: "The library addressed the following areas regarding the performance: bundle size, maintenance cost, minimal data processing"
 tags:
   - concepts
   - performance

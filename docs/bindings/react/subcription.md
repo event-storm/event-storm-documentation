@@ -1,7 +1,7 @@
 ---
 id: subscription
 title: Subscription types
-description: The Event Storm is presenting 3 levels of subscription&#58; active subscription, passive subscription, condition-based subscription
+description: "The Event Storm is presenting 3 levels of subscription: active subscription, passive subscription, condition-based subscription"
 tags:
   - react
   - bindings

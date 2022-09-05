@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Introduction to Event Storm
+title: Introduction
 description: Event Storm helps to organize and manage your application's state. The library is designed to be framework and platform agnostics.
 tags:
   - intro

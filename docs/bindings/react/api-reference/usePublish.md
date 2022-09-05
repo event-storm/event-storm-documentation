@@ -1,7 +1,7 @@
 ---
 id: usepublish
 title: usePublish
-description: The publish hook, is simply re exporting of the storm.publish method. Arguments&#58; storm (the storm object, for which the publish method will be provided)
+description: "The publish hook, is simply re exporting of the storm.publish method. Arguments: storm (the storm object, for which the publish method will be provided)"
 tags:
   - react
   - Event Storm
