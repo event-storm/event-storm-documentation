@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Event Storm',
-  tagline: 'Store sulution with decentralized subscription',
+  tagline: 'State management solution',
   url: 'https://eventstorm.tech',
   baseUrl: '/',
   onBrokenLinks: 'throw',
