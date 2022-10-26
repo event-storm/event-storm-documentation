@@ -32,7 +32,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`${siteConfig.title}: ${siteConfig.tagline}`}
-      description="Performace centric and UI agnostic javascript state manager. Boost your application performance with Event Storm."
+      description="Performance centric and UI agnostic javascript state manager with decentralized subscription. Boost your application performance with Event Storm."
     >
       <HomepageHeader />
       <main>
