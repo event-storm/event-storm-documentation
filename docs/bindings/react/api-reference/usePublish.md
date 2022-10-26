@@ -38,7 +38,9 @@ function usePublish<T>(storm: IStorm<T>): IStorm<T>['publish'];
 ```
 
 ## Arguments
+
 - storm - the [storm object](/docs/api-reference/storm#istorm), for which the `publish` method will be provided
 
 ## Returns
+
 A function that will publish to the provided storm. Simple the `storm.publish` method.

@@ -13,6 +13,7 @@ sidebar_position: 5
 You can easily make your store's any segment to be persisted by `persisted` function.
 
 ## persisted
+
 ```typescript
 import { createStorm, persisted } from 'event-storm';
 
@@ -33,6 +34,7 @@ const store = createPersistedStore(defaultState);
 ```
 
 ### IPersistOptions
+
 ```typescript
 interface IPersistOptions<T> {
   storageKey: string;
@@ -42,6 +44,7 @@ interface IPersistOptions<T> {
 ```
 
 ### Methods
+
 | Method | Type | Description |
 |   -    |   -   |      -     |
 | beforeunload | (storm: [IStormState](./storm.md)&lt;T>) => Partial&lt;[IStormState](./storm.md)&lt;T>> | method is called right before the browser unload event. It will receive the current storm state as an argument. It can return any storm fragment as a return value. The return value will be persisted. |

@@ -15,6 +15,7 @@ In general, in event sourcing technology there is no place to have a centralized
 What does this mean? The library will organize subscrition and data store updates in such a manner to keep track of individual subscription and individual updates. In other words, The Event Storm claims to update only for the given subscription.
 
 ## createStorm
+
 The Event Storm library is providing a `createStorm` method. The function supports a single argument, the default state.
 
 ```typescript
@@ -29,11 +30,13 @@ console.log(store.getState()) // { taxes: 20, grossSalary: 100_000 }
 ```
 
 ### Methods
+
 | Method | Type | Description |
 |   -    |   -   |      -     |
 | createStorm | &lt;T extends [AnyObject](#anyobject)>(data: T): [IStorm](#istorm&lt;T> | Pass the store initial state to the `createStorm`. The return will be [storm](#istorm). |
 
 ## IStorm
+
 ```typescript
 interface IStorm<T> {
   getState: () => IStormState<T>;
@@ -42,6 +45,7 @@ interface IStorm<T> {
   dispatch: (segments: Partial<T> | ((params: IStormState<T>) => Partial<T>), options?: AnyObject) => void;
 }
 ```
+
 | Method | Type | Description |
 |   -    |   -   |      -     |
 | getState | () => [IStormState](#istormstate)&lt;T> | The method will return the actual state of the storm |
@@ -51,6 +55,7 @@ interface IStorm<T> {
 
 
 ### IStormSubscription
+
 ```typescript
 type IStormSubscription<T, G = any> = (state: IStormState<T>, subscribe: (state: G) => G) => void
 ```
@@ -58,6 +63,7 @@ type IStormSubscription<T, G = any> = (state: IStormState<T>, subscribe: (state:
 To subcribe to a particular section use the second argument of the sucbcription function. E.g. `subcribe(state.desired)`. Pass any part of the [IStormState](#istormstate) to the second argument and you'll subscribe only for those changes. 
 
 ### IStormMiddleware
+
 ```typescript
 type IStormMiddleware<T> = (nextState: IStormState<T>, prevState: IStormState<T>, configs: AnyObject) => void
 ```
@@ -67,6 +73,7 @@ The middleware will be provided the next state, prev state and the corresponding
 The middleware will be called before the storm update.
 :::
 ### IStormState
+
 ``` typescript
 type IStormState<Type> = {
   [Property in keyof Type]: Type[Property];
@@ -75,6 +82,7 @@ type IStormState<Type> = {
 
 
 #### AnyObject
+
 ```typescript
 type AnyObject = Record<string, any>;
 ```

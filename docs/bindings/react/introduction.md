@@ -18,6 +18,7 @@ The React Event Storm is providing a lightweight, minimal abstraction for the [E
 ## Installation
 
 To install the library run:
+
 ```bash
 # npm
 npm i react-event-storm
@@ -25,6 +26,7 @@ npm i react-event-storm
 # yarn
 yarn add react-event-storm
 ```
+
 :::caution Required dependency
 The library is using Event Storm as a peer dependency, so you need to [install it](/docs/introduction#installation).
 :::
@@ -50,5 +52,6 @@ function Component() {
 ### See it in action
 
 Examples:
- - [**Typescript**](https://codesandbox.io/s/beautiful-currying-bl9dv)
- - [**React**](https://codesandbox.io/s/intelligent-http-iupz5)
+
+- [**Typescript**](https://codesandbox.io/s/beautiful-currying-bl9dv)
+- [**React**](https://codesandbox.io/s/intelligent-http-iupz5)

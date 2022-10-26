@@ -13,6 +13,7 @@ sidebar_position: 2
 ---
 
 The `event-storm` is presenting 3 levels of subscription:
+
 - Active subscription
 - Passive subscription
 - Condition-based subscription
@@ -24,9 +25,10 @@ The `cards` are used to render a list. Let's imagine you want to save in backend
 
 To avoid unnecassary renders, you'll need to directly access the store in your `card`'s click event handler. Which is most probably not the solution you're looking for. With the workarround you'll get store usage in a "react-way" as usual, also in a "none react-way"(accessing the store diretly, not via `useStore` or some other hook). Also, worth nothing that you'll have components where you need more than one handler. So you'll need to duplicate the code that accesses the store.
 
-
 #### Active Subscription
+
 This is a regular subscription. Whenever you are using any key from the store like in the example below, you'll receive any update on that keys.
+
 ```js
 const { cards, sizes } = useStore();
 ```
@@ -36,17 +38,21 @@ This is the same as:
 ```js
 const { cards, sizes } = useStore({ active: true });
 ```
+
 #### Passive subscription
+
 This option allows you to access any store key without getting you component rerendered on the particular keys' updates. **It is guaranteed that whenever you'll use the store values they'll be up to date(fresh values)**.
 :::danger Syntax is chaning
 Please pay attention on the `current` object. Never destruct the current when using primitives. The updates with primitives will not work.
 :::
+
 ```js
 const result = useStore({ active: false });
 console.log(result.current); // { cards: 'anyvalue', sizes: anyvalue }
 ```
 
 #### Condition-based subscription
+
 What is a condition-based subscription? The updates on the keys will not update the component until the provided condition will be truthy.
 Whenever `active` option can becomes `true` during runtime, the subcription becomes active. This means, starting from that point, your component
 will be rerendered on the key's updates. **With this feature, you are controlling your subscription.**
@@ -61,4 +67,5 @@ if (condition) {
   // other stuff related to 'cards' or 'sizes'
 }
 ```
+
 You can change the value of `active` option from `true` to `false` or vise versa. Whenever it'll be `false` your component will not be updated for the used keys' changes.

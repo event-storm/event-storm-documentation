@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Introduction
+title: Introduction to Event Storm
 description: Event Storm helps to organize and manage your application's state. The library is designed to be framework and platform agnostics.
 tags:
   - intro
@@ -8,7 +8,6 @@ tags:
 sidebar_position: 1
 ---
 
-# Introduction to Event Storm
 
 **The Event Storm is a tiny store implementation with pure javascript.**
 Event Storm will help to organize and manage your application's state. The library is designed to be framework and platform agnostics, which empowers an ability to use it, in **any Javascript runtime**.
@@ -16,7 +15,7 @@ Event Storm will help to organize and manage your application's state. The libra
 There is an official **[React wrapper](https://github.com/event-storm/react-event-storm)** of the Event Storm.
 :::
 
-### When to use Event Storm? 
+### When to use Event Storm?
 
 - Large scale application with a lot of data consumers(1K+)
 - The application is doing a lot of CPU intensive computations
@@ -26,6 +25,7 @@ There is an official **[React wrapper](https://github.com/event-storm/react-even
 ## Installation
 
 To install the library run:
+
 ```bash
 # npm
 npm i event-storm
@@ -62,8 +62,9 @@ storm.dispatch(prev => ({ isActive: !prev.isActive }));
 ### See it in action
 
 Examples:
- - [**Typescript**](https://codesandbox.io/s/beautiful-currying-bl9dv)
- - [**React**](https://codesandbox.io/s/intelligent-http-iupz5)
+
+- [**Typescript**](https://codesandbox.io/s/beautiful-currying-bl9dv)
+- [**React**](https://codesandbox.io/s/intelligent-http-iupz5)
 
 ## How the documentation is structured?
 
