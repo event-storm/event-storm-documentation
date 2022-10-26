@@ -1,4 +1,4 @@
-[![Deploy to GitHub Pages](https://github.com/event-storm/event-storm-documentation/actions/workflows/delpoy.yml/badge.svg)](https://github.com/event-storm/event-storm-documentation/actions/workflows/delpoy.yml)
+[![Deploy to GitHub Pages](https://github.com/event-storm/actions/workflows/delpoy.yml/badge.svg)](https://github.com/event-storm/actions/workflows/delpoy.yml)
 
 # Website
 
