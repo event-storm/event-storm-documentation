@@ -9,7 +9,7 @@ const config = {
   title: 'Event Storm',
   tagline: 'State management solution',
   url: 'https://eventstorm.tech',
-  baseUrl: '/',
+  baseUrl: '/event-storm-documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/event-storm.png',
